@@ -1,0 +1,331 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.4 (22/11/16)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{textcomp}
+\newcommand{\tld}{\raisebox{0.1ex}{\texttildelow}}
+%\newcommand{\tld}{\texttildelow}
+
+\usepackage{palatino} % Use the Palatino font by default
+
+\usepackage[backend=biber,style=authoryear,natbib=true]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+%\addbibresource{papers.bib} % The filename of the bibliography
+\addbibresource{zotero.bib}
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Acoustic Contrast Control: a study of the algorithm in different scenarios.} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{PhD. Jakob Juul Larsen} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\cosupervisor{MSc. Xiaohui Ma}
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\degree{} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Riccardo Di Lorenzo} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{MSc. in Computer Engineering} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{Aarhus University} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{Department of Engineering} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\group{} % Your research group's name and URL, this is used in the title page, print it elsewhere with \groupname
+\faculty{Computer Engineering} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+\begin{document}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+%\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1cm} % University name
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1cm] % Horizontal line
+
+ % Author name - remove the \href bracket to remove the link
+{\LARGE{\textsc{\authorname}}}\\
+\vspace{3mm}
+{\textsc{201503893}}\par
+\vfill 
+\vspace{6mm}
+\includegraphics[width=0.5\linewidth]{ausegl}	
+			\vfill \vfill
+ \vspace{6mm}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Supervisor:} \\
+\supname \\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+
+\emph{Co-supervisor:} \\
+\cosupname \\
+\end{flushright}
+\end{minipage}\\[1.5cm]
+ 
+\textsc{\Large Master Thesis}\\[0.3cm] % Thesis type
+\textit{in the}\\[0.3cm]
+\deptname\\[0.3cm] % Research group name and department name
+\textit{degree course of}\\[0.3cm]
+\facname \\
+\vfill
+\vspace{1cm}
+{\large \today}\\
+
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+\noindent I, \authorname, declare that this thesis titled, \enquote{\ttitle} and the work presented in it are my own. I confirm that:
+
+\begin{itemize} 
+\item This work was done wholly while in candidature for a Master of Science (M.Sc.) degree at the Aarhus University.
+\item Where I have consulted the published work of others, this is always clearly attributed.
+\item Where I have quoted from the work of others, the source is always given. With the exception of such quotations, this thesis is entirely my own work.
+\item I have acknowledged all main sources of help.
+\item Where the thesis is based on work done by myself or by others, I have made clear exactly what was done by others and what I have contributed myself.\\
+\end{itemize}
+ 
+% \noindent Signed:\\
+% \rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+ 
+% \noindent Date:\\
+% \rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+\end{declaration}
+
+\clearpage
+%\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.2\textheight}
+
+\noindent\enquote{\itshape Homo sum, humani nihil a me alienum puto.}\bigbreak
+
+\hfill Publius Terentius Afer
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+\setboolean{@openright}{false}
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+I'd like to acknowledge all the people that made this work possible.
+\\
+\\
+First of all I need to thank my family that has supported me in this feat that has been studying in a very different, though exciting, environment, with respect of what I was used to. Both my parents and my brother have invested a lot of energies to give me the opportunity of following my passions, even if that meant being far away from each other for many months, without the opportunity to meet, apart from using Internet instruments.
+\\
+\\
+A big thank goes also to both my supervisors, my main supervisor professor Jakob Juul Larsen, for his patience and kindness throughout the whole project, always going out of his way to answer my questions and my co-supervisor, PhD student Xiaohui Ma, who has been a pleasant person to share the laboratory with and who has taught me how to use the various equipments and grasp some more difficult concepts during these months of work.
+\end{acknowledgements}
+\setboolean{@openright}{true}
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+
+This works is based on the study of acoustic contrast control methods, a research field that aims to generate well-delimited zones where the total acoustic energy in the area is controlled through the use of destructive interference. The study focuses on the principles of sound field control and reproduces the results of a specific contrast method of choice in an anechoic scenario. The analysis is then expanded to include a case where a reflective surface is placed inside the test room. This adds complexity to the problem since the reflections adds a degree of uncertainty. The influence of such uncertainties are investigated. A modification of the contrast method is then proposed and its effects analyzed.
+\\
+The results showed in this thesis demonstrate the reproducibility of the algorithm under analysis and explore the results obtained by it in different environments, while investigating a possible improvement in certain specific scenarios, where the reflections are easily identifiable and separable.
+\\
+Both the algorithms are later tested in a new environment, a listening room. The two test environments have a different effect on the sound propagation that has to be taken into consideration when performing the tests. The results in the respective scenarios are analyzed and compared.
+\\
+The main instruments used to generate acoustic contrast are the Logsweep method, for the estimation of the sound propagation inside the test rooms and the Broadband Acoustic Contrast Control Response Differential (BACC-RD) method, which generates the acoustic contrast.
+\\
+In conclusion, a series of proposals for developing new and improved methods are derived from the testing of the ACC algorithm in question. These conclusions presented to the reader, together with the motivations that drive such proposals. 
+
+\end{abstract}
+
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+\setboolean{@openright}{false}
+\tableofcontents % Prints the main table of contents
+
+%\listoffigures % Prints the list of figures
+
+%\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{A/D} & \textbf{A}nalog /\textbf{D}igital\\
+\textbf{ACC} & \textbf{A}coustic \textbf{C}ontrast \textbf{C}ontrol\\
+\textbf{ADC} & \textbf{A}nalog \textbf{D}igital \textbf{C}onverter\\
+\textbf{BACC-RD} & \textbf{B}roadband \textbf{A}coustic \textbf{C}ontrast \textbf{C}ontrol \textbf{R}esponse \textbf{D}ifferential\\
+\textbf{BACC-RV} & \textbf{B}roadband \textbf{A}coustic \textbf{C}ontrast \textbf{C}ontrol \textbf{R}esponse \textbf{V}ariation\\
+\textbf{CNC} & \textbf{C}omputer \textbf{N}umerical \textbf{C}ontrol\\
+\textbf{D/A} & \textbf{D}igital /\textbf{A}nalog\\
+\textbf{DAC} & \textbf{D}igital \textbf{A}nalog \textbf{C}onverter\\
+\textbf{dB} & \textbf{d}eci\textbf{B}el\\
+\textbf{DSP} & \textbf{D}igital \textbf{S}ignal \textbf{P}rocessing\\
+\textbf{FFT} & \textbf{F}ast \textbf{F}ourier \textbf{T}ransform\\
+\textbf{HH} & \textbf{H}igher \textbf{H}armonics\\
+\textbf{IR} & \textbf{I}mpulse \textbf{R}esponse\\
+%\textbf{PSD} & \textbf{P}ower \textbf{S}pectral \textbf{D}ensity\\
+
+\end{abbreviations}
+%\setboolean{@openright}{true}
+%----------------------------------------------------------------------------------------
+%	PHYSICAL CONSTANTS/OTHER DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+% \begin{constants}{lr@{${}={}$}l} % The list of physical constants is a three column table
+
+% % The \SI{}{} command is provided by the siunitx package, see its documentation for instructions on how to use it
+
+% Speed of Light & $c_{0}$ & \SI{2.99792458e8}{\meter\per\second} (exact)\\
+% %Constant Name & $Symbol$ & $Constant Value$ with units\\
+
+% \end{constants}
+
+%----------------------------------------------------------------------------------------
+%	SYMBOLS
+%----------------------------------------------------------------------------------------
+
+% \begin{symbols}{lll} % Include a list of Symbols (a three column table)
+
+% $a$ & distance & \si{\meter} \\
+% $P$ & power & \si{\watt} (\si{\joule\per\second}) \\
+% %Symbol & Name & Unit \\
+
+% \addlinespace % Gap to separate the Roman symbols from the Greek
+
+% $\omega$ & angular frequency & \si{\radian} \\
+
+% \end{symbols}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+% \dedicatory{For/Dedicated to/To my\ldots} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\mainmatter % Begin numeric (1,2,3...) page numbering
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/Chapter1}
+\include{Chapters/Chapter2} 
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4} 
+\include{Chapters/Chapter5} 
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+% Include the appendices of the thesis as separate files from the Appendices folder
+% Uncomment the lines as you write the Appendices
+
+%\include{Appendices/AppendixA}
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\printbibliography[heading=bibintoc]
+%\bibliography{zotero.bib}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}  
